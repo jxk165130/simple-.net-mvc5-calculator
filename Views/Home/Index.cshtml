@@ -1,0 +1,47 @@
+﻿@model SimpleWebCalculator.Models.Calculator
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>First Number</label>
+                @Html.TextBoxFor(x => x.FirstNumber, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Operator</label>
+                @Html.DropDownListFor(x => x.Operator, new[]
+{
+               new SelectListItem() {Text = "+"},
+               new SelectListItem() {Text = "-"},
+               new SelectListItem() {Text = "*"},
+               new SelectListItem() {Text = "/"}
+                                             
+           }, "Choose an option", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Second Number</label>
+                @Html.TextBoxFor(x => x.SecondNumber, new { @class = "form-control" })
+            </div>
+
+            <div>
+                <label>Result</label>
+                @Html.DisplayFor(x => x.Result)
+            </div>
+
+            <div>
+                <input class="btn btn-success" type="submit" value="Calculate" />
+            </div>
+        }
+
+    </div>
+   
+</div>
